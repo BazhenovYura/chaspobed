@@ -29,7 +29,7 @@ const Practices = () => {
       title: 'Движение',
       duration: '20 минут',
       description: 'Зарядка, йога, бег или любая физическая активность. Пробуждаем тело и запускаем энергию.',
-      image: '/exercise.jpg',
+      image: `${import.meta.env.BASE_URL}exercise.jpg`,
       color: 'from-orange-400 to-amber-500',
     },
     {
@@ -37,7 +37,7 @@ const Practices = () => {
       title: 'Медитация',
       duration: '20 минут',
       description: 'Утренняя медитация для настройки сознания, ясности мышления и внутреннего покоя.',
-      image: '/meditation.jpg',
+      image: `${import.meta.env.BASE_URL}meditation.jpg`,
       color: 'from-amber-400 to-yellow-500',
     },
     {
@@ -45,7 +45,7 @@ const Practices = () => {
       title: 'Чтение',
       duration: '20 минут',
       description: 'Книги по саморазвитию, биографии великих людей, обучающие материалы.',
-      image: '/reading.jpg',
+      image: `${import.meta.env.BASE_URL}reading.jpg`,
       color: 'from-yellow-400 to-amber-500',
     },
     {
@@ -53,7 +53,7 @@ const Practices = () => {
       title: 'Планирование',
       duration: '20 минут',
       description: 'Постановка целей на день, визуализация успеха, практика благодарности.',
-      image: '/planning.jpg',
+      image: `${import.meta.env.BASE_URL}planning.jpg`,
       color: 'from-amber-500 to-orange-500',
     },
   ];
@@ -135,7 +135,7 @@ const Practices = () => {
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="w-full md:w-1/3">
               <img 
-                src="/gratitude.jpg" 
+                src={`${import.meta.env.BASE_URL}gratitude.jpg`}
                 alt="Благодарность"
                 className="w-full h-48 object-cover rounded-xl"
               />
