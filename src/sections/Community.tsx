@@ -97,7 +97,7 @@ const Community = () => {
           <div className={`relative transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img 
-                src="/community.jpg" 
+                src={`${import.meta.env.BASE_URL}community.jpg`}
                 alt="Community"
                 className="w-full h-auto"
               />
