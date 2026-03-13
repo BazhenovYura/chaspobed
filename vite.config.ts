@@ -4,31 +4,33 @@ import { defineConfig } from "vite"
 import { inspectAttr } from 'kimi-plugin-inspect-react'
 
 // https://vite.dev/config/
-export default defineConfig({
-  // ВАЖНО: для GitHub Pages в подпапке репозитория
-  base: '/chaspobed/',
+export default defineConfig(({ command, mode }) => {
+  // Определяем base в зависимости от того, где запускается сборка
+  const base = process.env.NODE_ENV === 'production' && process.env.GITHUB_ACTIONS 
+    ? '/chaspobed/'  // Для GitHub Pages (в подпапке)
+    : '/';           // Для продакшена на своём домене (в корне)
   
-  plugins: [inspectAttr(), react()],
-  
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
+  return {
+    base,
+    
+    plugins: [inspectAttr(), react()],
+    
+    resolve: {
+      alias: {
+        "@": path.resolve(__dirname, "./src"),
+      },
     },
-  },
-  
-  // Оптимизация для продакшена
-  build: {
-    outDir: 'dist',
-    sourcemap: false,
-    // Минимизация и оптимизация
-    minify: 'esbuild',
-    cssMinify: true,
-    // Убираем manualChunks - пусть Vite сам оптимизирует
-  },
-  
-  // Оптимизация для разработки
-  server: {
-    port: 3000,
-    open: true,
-  },
+    
+    build: {
+      outDir: 'dist',
+      sourcemap: false,
+      minify: 'esbuild',
+      cssMinify: true,
+    },
+    
+    server: {
+      port: 3000,
+      open: true,
+    },
+  }
 });
