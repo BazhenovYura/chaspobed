@@ -5,9 +5,7 @@ import { inspectAttr } from 'kimi-plugin-inspect-react'
 
 // https://vite.dev/config/
 export default defineConfig({
-  // ВАЖНО: base должен точно соответствовать названию репозитория
-  // GitHub Pages будет обслуживать сайт по адресу:
-  // https://bazhenovyura.github.io/chaspobed/
+  // ВАЖНО: для GitHub Pages в подпапке репозитория
   base: '/chaspobed/',
   
   plugins: [inspectAttr(), react()],
@@ -18,21 +16,29 @@ export default defineConfig({
     },
   },
   
-  // Полезные настройки для сборки
+  // Оптимизация для продакшена
   build: {
     outDir: 'dist',
-    sourcemap: true, // поможет при отладке
-    // Оптимизация для продакшена
+    sourcemap: false, // отключаем для продакшена (экономим место)
+    // Минимизация и оптимизация
+    minify: 'esbuild',
+    cssMinify: true,
     rollupOptions: {
       output: {
-        manualChunks: undefined,
+        // Разделяем библиотеки на отдельные чанки для лучшего кэширования
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom', 'react-hook-form'],
+          'radix-ui': Object.keys(require('./package.json').dependencies)
+            .filter(dep => dep.startsWith('@radix-ui/')),
+          'utils': ['clsx', 'tailwind-merge', 'class-variance-authority'],
+        },
       },
     },
   },
   
-  // Оптимизация сервера разработки
+  // Оптимизация для разработки
   server: {
     port: 3000,
-    open: true, // автоматически открывать браузер
+    open: true,
   },
 });
