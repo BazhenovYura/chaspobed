@@ -5,8 +5,8 @@ import { inspectAttr } from 'kimi-plugin-inspect-react'
 
 // https://vite.dev/config/
 export default defineConfig({
-  // Определяем base по наличию GITHUB_ACTIONS (всегда true при деплое)
-  base: process.env.GITHUB_ACTIONS ? '/chaspobed/' : '/',
+  // ВРЕМЕННО: всегда корень для теста
+  base: '/',
   
   plugins: [inspectAttr(), react()],
   
