@@ -16,18 +16,17 @@ export default defineConfig({
     },
   },
   
-  // ОЧЕНЬ ВАЖНО: отключаем ручное разделение чанков
+  // Оптимизация для продакшена
   build: {
     outDir: 'dist',
     sourcemap: false,
-    // НЕ используем manualChunks - пусть Vite сам оптимизирует
-    rollupOptions: {
-      output: {
-        // Убираем manualChunks, которые ломают загрузку
-      }
-    }
+    // Минимизация и оптимизация
+    minify: 'esbuild',
+    cssMinify: true,
+    // Убираем manualChunks - пусть Vite сам оптимизирует
   },
   
+  // Оптимизация для разработки
   server: {
     port: 3000,
     open: true,
