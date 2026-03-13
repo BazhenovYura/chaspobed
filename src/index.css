@@ -1,0 +1,197 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 48 100% 97%;
+    --foreground: 30 20% 15%;
+    --card: 48 100% 98%;
+    --card-foreground: 30 20% 15%;
+    --popover: 48 100% 98%;
+    --popover-foreground: 30 20% 15%;
+    --primary: 45 90% 50%;
+    --primary-foreground: 30 20% 10%;
+    --secondary: 45 60% 92%;
+    --secondary-foreground: 30 20% 15%;
+    --muted: 45 40% 90%;
+    --muted-foreground: 30 15% 45%;
+    --accent: 45 80% 55%;
+    --accent-foreground: 30 20% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 45 40% 85%;
+    --input: 45 40% 90%;
+    --ring: 45 90% 50%;
+    --radius: 1rem;
+    
+    --sunshine: 45 100% 55%;
+    --sunshine-light: 48 100% 75%;
+    --sunshine-dark: 40 90% 45%;
+    --cream: 48 100% 97%;
+    --warm-white: 48 50% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #F59E0B 0%, #D97706 50%, #B45309 100%);
+  }
+  
+  .bg-sunshine-gradient {
+    background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 30%, #FCD34D 60%, #FBBF24 100%);
+  }
+  
+  .bg-hero-gradient {
+    background: linear-gradient(180deg, #FFFBEB 0%, #FEF3C7 40%, #FDE68A 100%);
+  }
+  
+  .bg-warm-gradient {
+    background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 50%, #FCD34D 100%);
+  }
+  
+  .card-watercolor {
+    @apply rounded-2xl backdrop-blur-sm;
+    background: rgba(255, 251, 235, 0.9);
+    border: 1px solid rgba(251, 191, 36, 0.3);
+    box-shadow: 0 8px 32px rgba(251, 191, 36, 0.15);
+  }
+  
+  .btn-primary {
+    @apply px-8 py-4 rounded-full font-semibold text-white transition-all duration-300;
+    background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+    box-shadow: 0 4px 20px rgba(245, 158, 11, 0.4);
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(245, 158, 11, 0.5);
+  }
+  
+  .btn-secondary {
+    @apply px-8 py-4 rounded-full font-semibold transition-all duration-300;
+    background: rgba(255, 255, 255, 0.9);
+    color: #D97706;
+    border: 2px solid #FCD34D;
+    box-shadow: 0 4px 20px rgba(251, 191, 36, 0.2);
+  }
+  
+  .btn-secondary:hover {
+    transform: translateY(-2px);
+    background: white;
+    box-shadow: 0 8px 30px rgba(251, 191, 36, 0.3);
+  }
+  
+  .section-padding {
+    @apply py-20 md:py-28 lg:py-32 px-4 sm:px-6 lg:px-8;
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .watercolor-border {
+    position: relative;
+  }
+  
+  .watercolor-border::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(135deg, #FCD34D, #F59E0B, #FDE68A);
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0.5;
+    filter: blur(8px);
+  }
+  
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .pulse-glow {
+    animation: pulseGlow 3s ease-in-out infinite;
+  }
+  
+  .fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+  
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(251, 191, 36, 0.4); }
+  50% { box-shadow: 0 0 40px rgba(251, 191, 36, 0.7); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FEF3C7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FBBF24;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #F59E0B;
+}
