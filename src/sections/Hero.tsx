@@ -35,7 +35,7 @@ const Hero = () => {
         className="absolute inset-0 z-0"
       >
         <img 
-          src="/hero-sunrise.jpg" 
+          src={`${import.meta.env.BASE_URL}hero-sunrise.jpg`} 
           alt="Sunrise" 
           className="w-full h-full object-cover opacity-60"
         />
