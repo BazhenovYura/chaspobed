@@ -1,5 +1,12 @@
-<svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="12" cy="12" r="5" fill="#F59E0B"/>
-  <path d="M12 2V4M12 20V22M4 12H2M6.5 6.5L5 5M17.5 6.5L19 5M6.5 17.5L5 19M17.5 17.5L19 19M22 12H20" stroke="#F59E0B" stroke-width="2" stroke-linecap="round"/>
-  <circle cx="12" cy="12" r="2" fill="#FBBF24"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="4" fill="#F59E0B" stroke="none"/>
+  <path d="M12 2v2" stroke="#F59E0B"/>
+  <path d="M12 20v2" stroke="#F59E0B"/>
+  <path d="m4.93 4.93 1.41 1.41" stroke="#F59E0B"/>
+  <path d="m17.66 17.66 1.41 1.41" stroke="#F59E0B"/>
+  <path d="M2 12h2" stroke="#F59E0B"/>
+  <path d="M20 12h2" stroke="#F59E0B"/>
+  <path d="m6.34 17.66-1.41 1.41" stroke="#F59E0B"/>
+  <path d="m19.07 4.93-1.41 1.41" stroke="#F59E0B"/>
+  <circle cx="12" cy="12" r="2" fill="#FBBF24" stroke="none"/>
 </svg>
