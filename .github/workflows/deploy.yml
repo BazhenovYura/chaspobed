@@ -1,27 +1,49 @@
 name: Deploy to GitHub Pages
 
 on:
-  # Запускать при пушах в основную ветку
   push:
     branches: ["main"]
-  
-  # Разрешить ручной запуск из вкладки Actions
   workflow_dispatch:
 
-# Устанавливаем разрешения для GitHub Token
 permissions:
-  contents: read
+  contents: write  # ⬅️ ВАЖНО: даем права на запись
   pages: write
   id-token: write
 
-# Разрешаем только один одновременный деплой
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  # Сборка проекта
+  # ⬅️ НОВЫЙ JOB: синхронизация lock-файла
+  fix-lockfile:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      
+      - name: Regenerate package-lock.json
+        run: |
+          rm -f package-lock.json
+          npm install --package-lock-only
+      
+      - name: Commit and push if changed
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add package-lock.json
+          git diff --staged --quiet || (git commit -m "Update package-lock.json [skip ci]" && git push)
+  
+  # Основная сборка (будет запущена после fix-lockfile)
   build:
+    needs: fix-lockfile  # ⬅️ ждем, пока lock-файл обновится
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -44,7 +66,6 @@ jobs:
         with:
           path: ./dist
 
-  # Деплой на GitHub Pages
   deploy:
     environment:
       name: github-pages
