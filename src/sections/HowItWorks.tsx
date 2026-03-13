@@ -122,7 +122,7 @@ const HowItWorks = () => {
             {/* Image */}
             <div className="relative h-64 lg:h-auto">
               <img 
-                src="/bot-interface.jpg" 
+                src={`${import.meta.env.BASE_URL}bot-interface.jpg`}
                 alt="Bot Interface"
                 className="w-full h-full object-cover"
               />
