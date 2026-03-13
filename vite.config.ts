@@ -4,7 +4,7 @@ import { defineConfig } from "vite"
 import { inspectAttr } from 'kimi-plugin-inspect-react'
 
 // https://vite.dev/config/
-export default defineConfig(({ command, mode }) => {
+export default defineConfig(() => {
   // Определяем base в зависимости от того, где запускается сборка
   const base = process.env.NODE_ENV === 'production' && process.env.GITHUB_ACTIONS 
     ? '/chaspobed/'  // Для GitHub Pages (в подпапке)
