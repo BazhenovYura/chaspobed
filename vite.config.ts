@@ -4,29 +4,27 @@ import { defineConfig } from "vite"
 import { inspectAttr } from 'kimi-plugin-inspect-react'
 
 // https://vite.dev/config/
-export default defineConfig(({ mode }) => {
-  // На GitHub Actions mode='production', на локальной машине mode='development'
-  const base = mode === 'production' && process.env.GITHUB_ACTIONS 
-    ? '/chaspobed/' 
-    : '/'
+export default defineConfig({
+  // ЖЁСТКО ставим корень
+  base: '/',
   
-  return {
-    base,
-    plugins: [inspectAttr(), react()],
-    resolve: {
-      alias: {
-        "@": path.resolve(__dirname, "./src"),
-      },
+  plugins: [inspectAttr(), react()],
+  
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
     },
-    build: {
-      outDir: 'dist',
-      sourcemap: false,
-      minify: 'esbuild' as const,
-      cssMinify: true,
-    },
-    server: {
-      port: 3000,
-      open: true,
-    },
-  }
-})
+  },
+  
+  build: {
+    outDir: 'dist',
+    sourcemap: false,
+    minify: 'esbuild' as const,
+    cssMinify: true,
+  },
+  
+  server: {
+    port: 3000,
+    open: true,
+  },
+});
