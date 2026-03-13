@@ -5,10 +5,8 @@ import { inspectAttr } from 'kimi-plugin-inspect-react'
 
 // https://vite.dev/config/
 export default defineConfig({
-  // Определяем base в зависимости от того, где запускается сборка
-  base: process.env.NODE_ENV === 'production' && process.env.GITHUB_ACTIONS 
-    ? '/chaspobed/'  // Для GitHub Pages (в подпапке)
-    : '/',           // Для продакшена на своём домене (в корне)
+  // Определяем base по наличию GITHUB_ACTIONS (всегда true при деплое)
+  base: process.env.GITHUB_ACTIONS ? '/chaspobed/' : '/',
   
   plugins: [inspectAttr(), react()],
   
@@ -21,7 +19,7 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: false,
-    minify: 'esbuild' as const, // Добавляем 'as const' для правильного типа
+    minify: 'esbuild' as const,
     cssMinify: true,
   },
   
