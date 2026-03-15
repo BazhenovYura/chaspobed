@@ -23,6 +23,12 @@ const Pricing = () => {
     return () => observer.disconnect();
   }, []);
 
+  // Расчёт экономии
+  const pricePer6Days = 1990;
+  const totalFor66Days = pricePer6Days * 11; // 1990 * 11 = 21 890 ₽
+  const premiumPrice = 14990;
+  const savings = totalFor66Days - premiumPrice; // 21 890 - 14 990 = 6 900 ₽
+
   const plans = [
     {
       name: 'Старт',
@@ -76,7 +82,7 @@ const Pricing = () => {
         'Бонусные материалы',
         'Сертификат об окончании',
         'Личный куратор на весь период',
-        'Экономия 4 990 ₽',
+        `Экономия ${savings.toLocaleString('ru-RU')} ₽`, // Динамическое обновление экономии
       ],
       cta: 'Выбрать полный цикл',
       href: 'https://t.me/zaklinatel5am_bot',
@@ -221,7 +227,7 @@ const Pricing = () => {
                 {plan.popular && (
                   <div className="mt-3 text-center">
                     <span className="text-xs bg-white/20 px-2 py-1 rounded-full">
-                      Экономия 4 990 ₽
+                      Экономия {savings.toLocaleString('ru-RU')} ₽
                     </span>
                   </div>
                 )}
