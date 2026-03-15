@@ -96,7 +96,7 @@ const CTA = () => {
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-green-500" />
-              <span className="text-sm">7 дней бесплатно</span>
+              <span className="text-sm">6 дней бесплатно</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-green-500" />
