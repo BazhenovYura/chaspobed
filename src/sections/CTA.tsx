@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Sun, ArrowRight, Sparkles } from 'lucide-react';
 
+import { TELEGRAM_BOT_URL, TELEGRAM_GROUP_URL } from '@/config/links';
 const CTA = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -70,7 +71,7 @@ const CTA = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <a 
-              href="https://t.me/zaklinatel5am_bot"
+              href={TELEGRAM_BOT_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary flex items-center gap-2 text-lg px-10 py-5"
@@ -79,7 +80,7 @@ const CTA = () => {
               <ArrowRight className="w-5 h-5" />
             </a>
             <a 
-              href="https://t.me/chaspobed"
+              href={TELEGRAM_GROUP_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-secondary flex items-center gap-2 text-lg px-10 py-5"

@@ -1,0 +1,15 @@
+# зависимости и сборка
+node_modules/
+dist/
+*.tsbuildinfo
+
+# локальное окружение
+.env
+.env.*
+!.env.example
+*.local
+
+# служебное
+.DS_Store
+*.log
+.vite/

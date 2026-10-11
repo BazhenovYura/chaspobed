@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Sun, Menu, X } from 'lucide-react';
 
+import { TELEGRAM_BOT_URL } from '@/config/links';
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -80,7 +81,7 @@ const Navigation = () => {
             {/* CTA Button */}
             <div className="hidden md:block">
               <a 
-                href="https://t.me/zaklinatel5am_bot"
+                href={TELEGRAM_BOT_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`px-5 py-2.5 rounded-full font-medium text-sm transition-all ${
@@ -134,7 +135,7 @@ const Navigation = () => {
               </button>
             ))}
             <a 
-              href="https://t.me/zaklinatel5am_bot"
+              href={TELEGRAM_BOT_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="block w-full py-3 px-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-white font-medium text-center mt-4"

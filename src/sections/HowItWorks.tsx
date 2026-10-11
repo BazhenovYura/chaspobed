@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { MessageSquare, CheckCircle, Trophy, Bell, BarChart3, Users } from 'lucide-react';
 
+import { TELEGRAM_BOT_URL } from '@/config/links';
 const HowItWorks = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -27,7 +28,7 @@ const HowItWorks = () => {
     {
       icon: MessageSquare,
       title: 'Присоединяйся',
-      description: 'Нажми «Старт» в боте @zaklinatel5am_bot и начни свой путь',
+      description: 'Нажми «Старт» в боте @neurotrener_bot и начни свой путь',
       number: '01',
     },
     {
@@ -161,7 +162,7 @@ const HowItWorks = () => {
               </div>
 
               <a 
-                href="https://t.me/zaklinatel5am_bot"
+                href={TELEGRAM_BOT_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary mt-8 inline-flex items-center justify-center gap-2 w-fit"

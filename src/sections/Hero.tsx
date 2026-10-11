@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Sun, ArrowRight, Sparkles } from 'lucide-react';
 
+import { TELEGRAM_BOT_URL } from '@/config/links';
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
@@ -87,7 +88,7 @@ const Hero = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center fade-in-up stagger-4">
             <a 
-              href="https://t.me/zaklinatel5am_bot" 
+              href={TELEGRAM_BOT_URL} 
               target="_blank" 
               rel="noopener noreferrer"
               className="btn-primary flex items-center gap-2 text-lg"

@@ -1,5 +1,6 @@
 import { Sun, MessageCircle, Users, Send, Heart } from 'lucide-react';
 
+import { TELEGRAM_BOT_URL, TELEGRAM_GROUP_URL } from '@/config/links';
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
@@ -16,8 +17,8 @@ const Footer = () => {
     {
       title: 'Сообщество',
       items: [
-        { label: 'Telegram группа', href: 'https://t.me/chaspobed', external: true },
-        { label: 'Бот', href: 'https://t.me/zaklinatel5am_bot', external: true },
+        { label: 'Telegram группа', href: TELEGRAM_GROUP_URL, external: true },
+        { label: 'Бот', href: TELEGRAM_BOT_URL, external: true },
         { label: 'Отзывы', href: '#community' },
       ],
     },
@@ -25,7 +26,7 @@ const Footer = () => {
       title: 'Помощь',
       items: [
         { label: 'FAQ', href: '#' },
-        { label: 'Поддержка', href: 'https://t.me/chaspobed', external: true },
+        { label: 'Поддержка', href: TELEGRAM_GROUP_URL, external: true },
         { label: 'Политика конфиденциальности', href: '#' },
       ],
     },
@@ -53,7 +54,7 @@ const Footer = () => {
             </p>
             <div className="flex gap-4">
               <a 
-                href="https://t.me/chaspobed"
+                href={TELEGRAM_GROUP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-amber-800 flex items-center justify-center hover:bg-amber-700 transition-colors"
@@ -61,7 +62,7 @@ const Footer = () => {
                 <Users className="w-5 h-5" />
               </a>
               <a 
-                href="https://t.me/zaklinatel5am_bot"
+                href={TELEGRAM_BOT_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-amber-800 flex items-center justify-center hover:bg-amber-700 transition-colors"
