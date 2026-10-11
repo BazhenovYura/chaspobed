@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Check, Sparkles, Crown, Star, Zap } from 'lucide-react';
 
+import { TELEGRAM_BOT_URL } from '@/config/links';
 const Pricing = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -43,7 +44,7 @@ const Pricing = () => {
         'Доступ к общему чату',
       ],
       cta: 'Начать бесплатно',
-      href: 'https://t.me/zaklinatel5am_bot',
+      href: TELEGRAM_BOT_URL,
       popular: false,
       highlight: false,
     },
@@ -63,7 +64,7 @@ const Pricing = () => {
         '6 дней — видимый результат',
       ],
       cta: 'Начать трансформацию',
-      href: 'https://t.me/zaklinatel5am_bot',
+      href: TELEGRAM_BOT_URL,
       popular: false,
       highlight: true,
     },
@@ -85,7 +86,7 @@ const Pricing = () => {
         `Экономия ${savings.toLocaleString('ru-RU')} ₽`, // Динамическое обновление экономии
       ],
       cta: 'Выбрать полный цикл',
-      href: 'https://t.me/zaklinatel5am_bot',
+      href: TELEGRAM_BOT_URL,
       popular: true,
       highlight: false,
     },
